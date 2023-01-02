@@ -1,3 +1,3 @@
 #!/usr/bin/python3
-number = 7755583.141590
-print("{:.2f}".format(number))
+number = 3.141590
+print(f"{number:.2f}")
