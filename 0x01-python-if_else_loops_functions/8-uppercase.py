@@ -10,7 +10,3 @@ def uppercase(str):
             print("{:c}".format(ord(c) - 32), end='')
         else:
             print(c, end='')
-
-
-uppercase("best")
-uppercase("Best School 98 Battery street")
