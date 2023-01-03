@@ -24,7 +24,6 @@ listint_t *insert_node(listint_t **head, int number)
 	if (*head == NULL)
 	{
 		*head = new_node;
-		printf("head is null\n");
 		return (*head);
 	}
 
