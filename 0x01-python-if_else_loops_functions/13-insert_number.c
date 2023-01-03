@@ -37,7 +37,6 @@ listint_t *insert_node(listint_t **head, int number)
 
 	while (((*head)->next != NULL))
 	{
-		printf("node: %d\n", (*head)->n);
 		if ((*head)->n > number)
 			break;
 		head = &(*head)->next;
