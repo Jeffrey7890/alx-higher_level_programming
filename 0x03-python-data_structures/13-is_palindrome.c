@@ -14,6 +14,9 @@ int is_palindrome(listint_t **head)
 {
 	listint_t *stack = NULL, *traverse = *head;
 
+	if ((head == NULL) || (*head == NULL) || check_cycle(*head) == 1)
+		return (1);
+
 	/* populate stack */
 	while (traverse != NULL)
 	{
