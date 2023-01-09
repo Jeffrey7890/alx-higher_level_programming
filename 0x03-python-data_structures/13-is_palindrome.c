@@ -17,13 +17,14 @@ int check_cycle(listint_t *list)
 
 	while (fast != NULL && fast->next != NULL)
 	{
-		if (fast->n == slow->n)
+		if (fast == slow)
 			return (1);
 		slow = slow->next;
 		fast = fast->next->next;
 	}
 	return (0);
 }
+
 
 /**
   * is_palindrome - checks if a listint_t linked list is palindrome"
@@ -32,39 +33,35 @@ int check_cycle(listint_t *list)
   */
 int is_palindrome(listint_t **head)
 {
-	listint_t *curr_ptr, *end_ptr, *checked_ptr;
+	listint_t *start, *end, *check;
 
-	if ((head == NULL) || (*head == NULL) || check_cycle(*head))
+	if ((head == NULL) || (*head == NULL) || (check_cycle(*head) == 1))
+		return (0);
+
+	start = *head;
+	end = *head;
+	check = NULL;
+
+	while (end->next != NULL)
+		end = end->next;
+
+	while ((start->next != NULL))
 	{
-		return (1);
-	}
+		while (end->next != check)
+			end = end->next;
 
-	curr_ptr = *head;
-	end_ptr = *head;
-	checked_ptr = NULL;
 
-	/* find end_ptr */
-	while (end_ptr->next != NULL)
-		end_ptr = end_ptr->next;
+		head = &(*head)->next;
 
-	while (curr_ptr != NULL)
-	{
-
-		/*printf("update end_ptr\n");*/
-		while (end_ptr->next != checked_ptr)
-			end_ptr = end_ptr->next;
-
-		if (curr_ptr->next == end_ptr)
-		{
-			if (curr_ptr->n != end_ptr->n)
-				return (0);
+		if (end->n != start->n)
+			return (0);
+		if ((end == start->next) || (end == start))
 			return (1);
-		}
 
-		/* update checked value */
-		checked_ptr = end_ptr;
-		end_ptr = curr_ptr;
-		curr_ptr = curr_ptr->next;
+		check = end;
+		end = *head;
+		start = start->next;
+
 	}
 	return (1);
 }
