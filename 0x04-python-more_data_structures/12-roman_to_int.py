@@ -17,7 +17,7 @@ def roman_to_int(roman_string):
     length = len(roman_string)
     if length > 2:
         if ROMAN_NUMERAL[roman_string[0]] < ROMAN_NUMERAL[roman_string[1]]:
-            return (None)
+            return (0)
 
     for i in range(length):
         rchr = roman_string[i]
