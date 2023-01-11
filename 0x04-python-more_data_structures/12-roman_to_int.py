@@ -19,9 +19,10 @@ def roman_to_int(roman_string):
         rchr = roman_string[i]
         value = ROMAN_NUMERAL_STD[rchr]
         if rchr == 'I' and i < length - 1:
-            if value < ROMAN_NUMERAL_STD[roman_string[i + 1]]:
+            nchr = roman_string[i + 1]
+            if nchr == 'V' or nchr == 'X':
                 SUM = SUM - value
-            else:
+            elif rchr == nchr:
                 SUM = SUM + value
             i += 1
             value = ROMAN_NUMERAL_STD[roman_string[i]]
