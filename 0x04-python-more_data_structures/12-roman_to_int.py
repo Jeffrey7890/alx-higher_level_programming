@@ -16,6 +16,8 @@ def roman_to_int(roman_string):
     SUM = 0
     length = len(roman_string)
     if length > 2:
+        if roman_string[0] not in ROMAN_NUMERAL or roman_string[1] not in ROMAN_NUMERAL:
+            return (0)
         if ROMAN_NUMERAL[roman_string[0]] < ROMAN_NUMERAL[roman_string[1]]:
             return (0)
 
