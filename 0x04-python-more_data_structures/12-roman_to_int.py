@@ -21,6 +21,8 @@ def roman_to_int(roman_string):
 
     for i in range(length):
         rchr = roman_string[i]
+        if rchr not in ROMAN_NUMERAL:
+            return (0)
         value = ROMAN_NUMERAL[rchr]
         if rchr == 'I' and i < length - 1:
             nchr = roman_string[i + 1]
