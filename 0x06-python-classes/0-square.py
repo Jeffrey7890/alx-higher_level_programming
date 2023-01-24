@@ -1,6 +1,6 @@
 #!/usr/python3
-"""Reprensation of and empty class in python"""
+""" Module Square """
 
 class Square:
-    """Documentation of an empty class."""
+    """Empty Square class"""
     pass
