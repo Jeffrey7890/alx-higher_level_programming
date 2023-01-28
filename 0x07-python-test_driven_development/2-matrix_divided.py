@@ -1,6 +1,14 @@
 #!/usr/bin/python3
 
-"""Module to represent matrix division"""
+"""Module to represent matrix division
+
+    This module contains the matrix_divided() function,
+    It divides a (list of list) matrix by a divisor
+
+    The matrix must contain elements of type integer or
+    float, else other it raises other error.
+
+"""
 
 
 def raise_TypeError(matrix, message):
