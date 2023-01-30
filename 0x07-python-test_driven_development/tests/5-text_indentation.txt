@@ -1,0 +1,16 @@
+==============================
+How to use test_indentation.py
+==============================
+
+::
+	>>> text_indentation = __import__('5-text_indentation').text_indentation
+
+	>>> string = """lorem the is really nice and i want a new? mannar is falling from heaven; and moses instructed we should not take any home? with us"""
+	>>> text_indentation(string)
+	lorem the is really nice and i want a new?
+	<BLANKLINE>
+	manner is falling from heaven;
+	<BLANKLINE>
+	and moses instructed we should not take any home?
+	<BLANKLINE>
+	with us
