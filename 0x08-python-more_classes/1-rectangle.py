@@ -45,7 +45,7 @@ class Rectangle:
             raise TypeError("height must be an integer")
         if value < 0:
             raise TypeError("height must be >= 0")
-        slef.__height = value
+        self.__height = value
 
     @width.setter
     def width(self, value):
