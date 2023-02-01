@@ -19,7 +19,7 @@ class Rectangle:
         height: must be an int and >= 0, else rasies
         value error, or typeerror
     """
-    def __init__(self, width, height):
+    def __init__(self, width=0, height=0):
         if type(width) is not int:
             raise TypeError("width must be an integer")
         if width < 0:
