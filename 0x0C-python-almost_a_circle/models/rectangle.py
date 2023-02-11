@@ -104,3 +104,9 @@ class Rectangle(Base):
             for _ in range(self.__width):
                 print("#", end="")
             print()
+
+    def update(self, *args):
+        attributes = ['id', 'width', 'height', 'x', 'y']
+
+        for i in range(len(args)):
+            self.__setattr__(attributes[i], args[i])
