@@ -105,8 +105,16 @@ class Rectangle(Base):
                 print("#", end="")
             print()
 
-    def update(self, *args):
-        attributes = ['id', 'width', 'height', 'x', 'y']
+    def update(self, *args, **kwargs):
+        if len(args) > 0:
+            attributes = ['id', 'width', 'height', 'x', 'y']
+            # set id first
+            if type(args[0]) is not int:
+                raise TypeError("*args must be a tuple")
+            self.__setattr__(attributes[0], args[0])
 
-        for i in range(len(args)):
-            self.__setattr__(attributes[i], args[i])
+            for i in range(1, len(args)):
+                self.__setattr__(attributes[i], args[i])
+        else:
+            for key in kwargs.keys():
+                self.__setattr__(key, kwargs[key])
