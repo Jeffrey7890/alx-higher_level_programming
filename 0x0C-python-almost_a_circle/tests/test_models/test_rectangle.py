@@ -3,7 +3,7 @@ import unittest
 class TestRectangle(unittest.TestCase):
     def setUp(self):
         from models.rectangle import Rectangle
-        self.rectangle = Rectangle(10, 20)
+        self.rectangle = Rectangle(4, 6, 2, 1, 12)
 
     @unittest.skip("always skip this test")
     def test_private_attribes(self):
@@ -37,3 +37,8 @@ class TestRectangle(unittest.TestCase):
             rect.x = "naem"
             rect.y = "age"
 
+    def test_area(self):
+        self.assertEqual(self.rectangle.area(), 24)
+
+    def test_str(self):
+        self.assertEqual(self.rectangle.__str__(), "[Rectangle] (12) 2/1 - 4/6")
