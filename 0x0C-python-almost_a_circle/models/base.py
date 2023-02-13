@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+
+
 """Model Base class"""
 
 
@@ -6,7 +8,9 @@ import json
 
 
 class Base:
-    """Base class of all object in model"""
+    """Base class of all
+        object in model
+    """
 
     __nb_objects = 0
 
