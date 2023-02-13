@@ -4,6 +4,7 @@
 
 from .base import Base
 
+
 class Rectangle(Base):
     """Rectangle class inherites from
         Base class
@@ -24,7 +25,7 @@ class Rectangle(Base):
 
             Attribtues:
             ==========
-            width: 
+            width:
                 width of the rectangle, must be integer
                 and must be > 0,
             height:
@@ -50,7 +51,6 @@ class Rectangle(Base):
                 function to update each class variable,
                 accept any number of args and **kwargs
         """
-
 
         super().__init__(id)
 
@@ -157,4 +157,3 @@ class Rectangle(Base):
         result["x"] = self.x
         result["y"] = self.y
         return (result)
-        
