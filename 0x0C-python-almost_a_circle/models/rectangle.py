@@ -20,6 +20,38 @@ class Rectangle(Base):
 
     """
     def __init__(self, width, height, x=0, y=0, id=None):
+        """initialation of class
+
+            Attribtues:
+            ==========
+            width: 
+                width of the rectangle, must be integer
+                and must be > 0,
+            height:
+                height of the rectangle must be integer
+                and must be > 0, else raise
+                ValueError
+            x:
+                x position of the x coordinate
+                must be >= 0
+            y:
+                y position of the y coordinate
+                must be >= 0
+
+            _validate_xy:
+                function to validate the values of
+                the x and y class variables
+
+            _validate_wh:
+                function to validate the values of the
+                width and height class varibles
+
+            update:
+                function to update each class variable,
+                accept any number of args and **kwargs
+        """
+
+
         super().__init__(id)
 
         self._validate_wh(width, "width")
@@ -71,18 +103,21 @@ class Rectangle(Base):
         self.__y = value
 
     def _validate_wh(self, value, name):
+        """validate the width and height values"""
         if type(value) is not int:
             raise TypeError("{} must be an integer".format(name))
         if value <= 0:
             raise ValueError("{} must be > 0".format(name))
 
     def _validate_xy(self, value, name):
+        """validate the x and y values"""
         if type(value) is not int:
             raise TypeError("{} must be an integer".format(name))
         if value < 0:
             raise ValueError("{} must be >= 0".format(name))
 
     def __str__(self):
+        """string representations"""
         string = "[Rectangle] (" + str(self.id) + ") " + str(self.x) + "/"
         string += str(self.y) + " - " + str(self.width)
         string += "/" + str(self.height)
@@ -90,9 +125,11 @@ class Rectangle(Base):
         return (string)
 
     def area(self):
+        """calculates the area of a rectangle"""
         return (self.__width * self.__height)
 
     def display(self):
+        """prints out the shape with '#'"""
         print("\n" * self.y, end="")
         for _ in range(self.__height):
             print(" " * self.__x, end="")
@@ -101,6 +138,7 @@ class Rectangle(Base):
             print()
 
     def update(self, *args, **kwargs):
+        """update the class variables"""
         if len(args) > 0:
             attributes = ['id', 'width', 'height', 'x', 'y']
 
@@ -111,6 +149,7 @@ class Rectangle(Base):
                 self.__setattr__(key, kwargs[key])
 
     def to_dictionary(self):
+        """returns the class variables in a dictionary"""
         result = {}
         result["width"] = self.width
         result["height"] = self.height
