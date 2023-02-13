@@ -19,6 +19,7 @@ class Base:
 
     @staticmethod
     def to_json_string(list_dictionaries):
+        """converts list of dictionaries to json strings"""
         if type(list_dictionaries) is not list:
             return ("[]")
         l_dict = []
@@ -31,14 +32,22 @@ class Base:
 
     @classmethod
     def save_to_file(cls, list_objs):
+        """saves list of objects to json file"""
         if type(list_objs) is not list:
             raise TypeError("list_objs must be list")
 
         lt_dict = []
-        for obj in list_objs: 
-            if issubclass(type(obj), Base) == True and type(obj) is not Base:
+        for obj in list_objs:
+            if issubclass(type(obj), Base) is True and type(obj) is not Base:
                 lt_dict.append(obj.to_dictionary())
         file_name = cls.__name__ + ".json"
         with open(file_name, 'w', encoding='utf-8') as f:
             json.dump(lt_dict, f)
 
+    @staticmethod
+    def from_json_string(json_string):
+        """converts json string to objects"""
+        if type(json_string) is not str:
+            retrun([])
+
+        return (json.loads(json_string))
