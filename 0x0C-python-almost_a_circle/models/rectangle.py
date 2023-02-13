@@ -2,12 +2,7 @@
 """Module Rectangle"""
 
 
-if __name__ == "__main__":
-    from base import Base
-
-else:
-    from models.base import Base
-
+from .base import Base
 
 class Rectangle(Base):
     """Rectangle class inherites from
@@ -28,16 +23,16 @@ class Rectangle(Base):
         super().__init__(id)
 
         self._validate_wh(width, "width")
-        self.__width = width
+        self.width = width
 
         self._validate_wh(height, "height")
-        self.__height = height
+        self.height = height
 
         self._validate_xy(x, "x")
-        self.__x = x
+        self.x = x
 
         self._validate_xy(y, "y")
-        self.__y = y
+        self.y = y
 
     @property
     def width(self):
@@ -108,13 +103,19 @@ class Rectangle(Base):
     def update(self, *args, **kwargs):
         if len(args) > 0:
             attributes = ['id', 'width', 'height', 'x', 'y']
-            # set id first
-            if type(args[0]) is not int:
-                raise TypeError("*args must be a tuple")
-            self.__setattr__(attributes[0], args[0])
 
-            for i in range(1, len(args)):
+            for i in range(len(args)):
                 self.__setattr__(attributes[i], args[i])
         else:
             for key in kwargs.keys():
                 self.__setattr__(key, kwargs[key])
+
+    def to_dictionary(self):
+        result = {}
+        result["width"] = self.width
+        result["height"] = self.height
+        result["id"] = self.id
+        result["x"] = self.x
+        result["y"] = self.y
+        return (result)
+        

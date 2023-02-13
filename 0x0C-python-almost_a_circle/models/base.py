@@ -2,6 +2,9 @@
 """Model Base class"""
 
 
+import json
+
+
 class Base:
     """Base class of all object in model"""
 
@@ -13,3 +16,26 @@ class Base:
         else:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
+
+    @staticmethod
+    def to_json_string(list_dictionaries):
+        if type(list_dictionaries) is not list:
+            return ("[]")
+        l_dict = []
+
+        for dictionary in list_dictionaries:
+            if type(dictionary) is dict:
+                l_dict.append(dictionary)
+
+        return (json.dumps(l_dict))
+
+    @classmethod
+    def save_to_file(cls, list_objs):
+        lt_dict = []
+        for obj in list_objs: 
+            if issubclass(type(obj), Base) == True and type(obj) is not Base:
+                lt_dict.append(obj.to_dictionary())
+        file_name = cls.__name__ + ".json"
+        with open(file_name, 'w', encoding='utf-8') as f:
+            json.dump(lt_dict, f)
+
