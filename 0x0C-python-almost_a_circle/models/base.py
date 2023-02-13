@@ -31,6 +31,9 @@ class Base:
 
     @classmethod
     def save_to_file(cls, list_objs):
+        if type(list_objs) is not list:
+            raise TypeError("list_objs must be list")
+
         lt_dict = []
         for obj in list_objs: 
             if issubclass(type(obj), Base) == True and type(obj) is not Base:
