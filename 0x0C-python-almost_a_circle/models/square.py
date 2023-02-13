@@ -30,6 +30,7 @@ class Square(Rectangle):
         self.height = value
 
     def update(self, *args, **kwargs):
+        """update for square class"""
         if len(args) > 0:
             attributes = ['id', 'width', 'x', 'y']
             for i in range(len(args)):
@@ -40,6 +41,9 @@ class Square(Rectangle):
                 self.__setattr__(key, kwargs[key])
 
     def to_dictionary(self):
+        """function to convert square class
+            attribute to dictionary
+        """
         result = {}
         result['size'] = self.width
         result['id'] = self.id
