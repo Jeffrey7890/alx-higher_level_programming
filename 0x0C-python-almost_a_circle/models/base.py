@@ -52,7 +52,16 @@ class Base:
     @staticmethod
     def from_json_string(json_string):
         """converts json string to objects"""
+        result = []
         if type(json_string) is not str:
             retrun([])
 
         return (json.loads(json_string))
+
+    @classmethod
+    def create(cls, **dictionary):
+        if type(dictionary) is not dict:
+            raise TypeError
+        dummy = cls(10, 10)
+        dummy.update(**dictionary)
+        return (dummy)
