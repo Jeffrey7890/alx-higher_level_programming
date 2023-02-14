@@ -45,7 +45,7 @@ class Base:
                 lt_dict.append(obj.to_dictionary())
         file_name = cls.__name__ + ".json"
         with open(file_name, 'w', encoding='utf-8') as f:
-            json.dump(lt_dict, f)
+            f.write(Base.to_json_string(lt_dict))
 
     @staticmethod
     def from_json_string(json_string):
