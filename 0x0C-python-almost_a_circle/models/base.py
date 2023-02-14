@@ -80,6 +80,4 @@ class Base:
             return (objs_list)
 
         except Exception:
-            return([])
-
-
+            return ([])
