@@ -60,8 +60,6 @@ class Base:
 
     @classmethod
     def create(cls, **dictionary):
-        if type(dictionary) is not dict:
-            raise TypeError
         dummy = cls(10, 10)
         dummy.update(**dictionary)
         return (dummy)
