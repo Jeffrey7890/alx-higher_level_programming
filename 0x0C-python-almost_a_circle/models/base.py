@@ -63,3 +63,23 @@ class Base:
         dummy = cls(10, 10)
         dummy.update(**dictionary)
         return (dummy)
+
+    @classmethod
+    def load_from_file(cls):
+        try:
+            json_list = []
+            objs_list = []
+
+            file_name = cls.__name__ + ".json"
+            with open(file_name, 'r', encoding="utf-8") as f:
+                json_list = json.load(f)
+
+            for obj in json_list:
+
+                objs_list.append(cls.create(**obj))
+            return (objs_list)
+
+        except Exception:
+            return([])
+
+
