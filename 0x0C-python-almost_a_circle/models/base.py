@@ -8,9 +8,7 @@ import json
 
 
 class Base:
-    """Base class of all
-        object in model
-    """
+    """Base class of all object in model"""
 
     __nb_objects = 0
 
@@ -60,19 +58,21 @@ class Base:
 
     @classmethod
     def create(cls, **dictionary):
+        """creates new Base object"""
         dummy = cls(10, 10)
         dummy.update(**dictionary)
         return (dummy)
 
     @classmethod
     def load_from_file(cls):
+        """load classes from json file"""
         try:
             json_list = []
             objs_list = []
 
             file_name = cls.__name__ + ".json"
             with open(file_name, 'r', encoding="utf-8") as f:
-                json_list = json.load(f)
+                json_list = Base.from_json_string(f.read())
 
             for obj in json_list:
 
