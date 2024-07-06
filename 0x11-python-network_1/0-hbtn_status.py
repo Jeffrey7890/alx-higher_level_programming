@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 
+""" How to use th urllib module in python """
+
 import urllib.request
 
 with urllib.request.urlopen('https://alx-intranet.hbtn.io/status') as response:
