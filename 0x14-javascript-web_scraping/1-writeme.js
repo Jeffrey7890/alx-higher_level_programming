@@ -9,6 +9,6 @@ const fileContent = process.argv[3];
 fs.writeFile(filePath, fileContent, 'utf8', (err, data) => {
   if (err) {
     console.log(err);
-    return;
+    process.exit(1);
   }
 });
