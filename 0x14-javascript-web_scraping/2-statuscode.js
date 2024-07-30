@@ -4,8 +4,8 @@ const request = require('request');
 
 const URL = process.argv[2];
 
-if (!URL){
-    process.exit(1);
+if (!URL) {
+  process.exit(1);
 }
 request(URL, (error, response) => {
   if (error) {
